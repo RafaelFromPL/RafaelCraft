@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "###",
+        "###",
+        "###"
+    ],
+    "key":
+    {
+        "#":
+        {
+            "item":"rafaelcraft:enderite_ingot"
+        }
+    },
+    "result":
+    {
+        "item": "rafaelcraft:enderite_block"
+    }
+}

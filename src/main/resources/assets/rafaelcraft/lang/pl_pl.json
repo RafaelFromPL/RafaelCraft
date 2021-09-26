@@ -1,0 +1,23 @@
+{
+    "item.rafaelcraft.enderite_scrap": "Odłamek enderytu",
+    "item.rafaelcraft.enderite_ingot": "Sztabka enderytu",
+
+    "item.rafaelcraft.enderite_sword": "Enderytowy miecz",
+    "item.rafaelcraft.enderite_shovel": "Enderytowa łopata",
+    "item.rafaelcraft.enderite_pickaxe": "Enderytowy kilof",
+    "item.rafaelcraft.enderite_axe": "Enderytowa siekiera",
+    "item.rafaelcraft.enderite_hoe": "Enderytowa motyka",
+
+    "item.rafaelcraft.enderite_helmet": "Enderytowy hełm",
+    "item.rafaelcraft.enderite_chestplate": "Enderytowy napierśnik",
+    "item.rafaelcraft.enderite_leggins": "Enderytowe spodnie",
+    "item.rafaelcraft.enderite_boots": "Enderytowe buty",
+
+    "block.rafaelcraft.enderite_ore": "Złoże enderytu",
+    "block.rafaelcraft.enderite_block": "Blok enderytu",
+    "block.rafaelcraft.netherite_furnace": "Netherytowy piec",
+
+    "screen.rafaelcraft.netherite_furnace": "Netherytowy piec",
+
+    "itemGroup.rafaelCraftTab": "RafaelCraft"
+}

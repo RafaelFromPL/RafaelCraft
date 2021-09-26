@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient":
+    {
+        "item": "rafaelcraft:enderite_ore"
+    },
+    "result": "rafaelcraft:enderite_scrap",
+    "experience": 3,
+    "cookingtime": 400
+}

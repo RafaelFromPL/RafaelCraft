@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+      "item": "minecraft:netherite_shovel"
+    },
+    "addition": {
+      "item": "rafaelcraft:enderite_ingot"
+    },
+    "result": {
+      "item": "rafaelcraft:enderite_shovel"
+    }
+  }

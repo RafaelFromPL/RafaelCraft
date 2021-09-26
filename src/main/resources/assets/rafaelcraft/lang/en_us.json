@@ -1,0 +1,23 @@
+{
+    "item.rafaelcraft.enderite_scrap": "Enderite Scrap",
+    "item.rafaelcraft.enderite_ingot": "Enderite Ingot",
+
+    "item.rafaelcraft.enderite_sword": "Enderite Sword",
+    "item.rafaelcraft.enderite_shovel": "Enderite Shovel",
+    "item.rafaelcraft.enderite_pickaxe": "Enderite Pickaxe",
+    "item.rafaelcraft.enderite_axe": "Enderite Axe",
+    "item.rafaelcraft.enderite_hoe": "Enderite Hoe",
+
+    "item.rafaelcraft.enderite_helmet": "Enderite Helmet",
+    "item.rafaelcraft.enderite_chestplate": "Enderite Chestplate",
+    "item.rafaelcraft.enderite_leggins": "Enderite Leggins",
+    "item.rafaelcraft.enderite_boots": "Enderite Boots",
+
+    "block.rafaelcraft.enderite_ore": "Enderite Ore",
+    "block.rafaelcraft.enderite_block": "Block Of Enderite",
+    "block.rafaelcraft.netherite_furnace": "Netherite Furnace",
+
+    "screen.rafaelcraft.netherite_furnace": "Netherite Furnace",
+
+    "itemGroup.rafaelCraftTab": "RafaelCraft"
+}

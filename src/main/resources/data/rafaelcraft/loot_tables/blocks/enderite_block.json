@@ -1,0 +1,16 @@
+{
+  "type": "minercaft:block",
+  "pools":
+  [
+    {
+      "rolls": 1,
+      "entries":
+      [
+        {
+          "type": "minecraft:item",
+          "name": "rafaelcraft:enderite_block"
+        }
+      ]
+    }
+  ]
+}
