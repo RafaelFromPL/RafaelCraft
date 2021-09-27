@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
@@ -18,8 +19,10 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class NetheriteFurnaceTile extends TileEntity
+public class NetheriteFurnaceTile extends TileEntity implements ITickableTileEntity
 {
+
+    int Counter = 0;
 
     private final ItemStackHandler itemHandler = createHandler();
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
@@ -66,7 +69,7 @@ public class NetheriteFurnaceTile extends TileEntity
                 switch (slot)
                 {
                     case 0: return stack.getItem() == ModBlocks.ENDERITE_ORE.get().asItem();
-                    case 1: return stack.getItem() == Items.LAVA_BUCKET;
+                    case 1: return stack.getItem() == Items.LAVA_BUCKET || stack.getItem() == Items.BUCKET;
                     case 2: return stack.getItem() == ModItems.ENDERITE_SCRAP.get();
                     default:
                         return false;
@@ -95,7 +98,7 @@ public class NetheriteFurnaceTile extends TileEntity
     {
         if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
         {
-
+            return handler.cast();
         }
 
         return super.getCapability(cap, side);
@@ -106,15 +109,30 @@ public class NetheriteFurnaceTile extends TileEntity
         boolean hasOreInFirstSlot = this.itemHandler.getStackInSlot(0).getCount() > 0
                 && this.itemHandler.getStackInSlot(0).getItem() == ModBlocks.ENDERITE_ORE.get().asItem();
         boolean hasLavaInSecondSlot = this.itemHandler.getStackInSlot(1).getCount() > 0
-                && this.itemHandler.getStackInSlot(0).getItem() == Items.LAVA_BUCKET;
+                && this.itemHandler.getStackInSlot(1).getItem() == Items.LAVA_BUCKET;
 
         if(hasOreInFirstSlot && hasLavaInSecondSlot)
         {
+
             this.itemHandler.getStackInSlot(0).shrink(1);
             this.itemHandler.getStackInSlot(1).shrink(1);
 
+            this.itemHandler.insertItem(1, new ItemStack(Items.BUCKET), false);
             this.itemHandler.insertItem(2, new ItemStack(ModItems.ENDERITE_SCRAP.get()), false);
         }
     }
 
+    public boolean hasFuel()
+    {
+        boolean hasFuel = this.itemHandler.getStackInSlot(1).getCount() > 0
+            && this.itemHandler.getStackInSlot(1).getItem() == Items.LAVA_BUCKET;
+
+        return hasFuel;
+    }
+
+    @Override
+    public void tick()
+    {
+
+    }
 }

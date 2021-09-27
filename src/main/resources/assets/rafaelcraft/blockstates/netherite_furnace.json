@@ -1,6 +1,19 @@
 {
-    "variants":
-    {
-        "": { "model": "rafaelcraft:block/netherite_furnace" }
+    "variants": {
+        "facing=east": {
+            "model": "rafaelcraft:block/netherite_furnace",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "rafaelcraft:block/netherite_furnace"
+        },
+        "facing=south": {
+            "model": "rafaelcraft:block/netherite_furnace",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "rafaelcraft:block/netherite_furnace",
+            "y": 270
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.rafael.rafaelcraft.container;
 
 import com.rafael.rafaelcraft.block.ModBlocks;
+import com.rafael.rafaelcraft.tileentity.NetheriteFurnaceTile;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -23,6 +24,7 @@ public class NetheriteFurnaceContainer extends Container
     private final TileEntity tileEntity;
     private final PlayerEntity playerEntity;
     private final IItemHandler playerInventory;
+    public NetheriteFurnaceTile netheriteFurnaceTile;
 
     public NetheriteFurnaceContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player)
     {
@@ -37,12 +39,23 @@ public class NetheriteFurnaceContainer extends Container
         {
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h ->
             {
-                addSlot(new SlotItemHandler(h, 0, 80, 31));
-                addSlot(new SlotItemHandler(h, 1, 80, 53));
-                addSlot(new SlotItemHandler(h, 2, 100, 42));
+                addSlot(new SlotItemHandler(h, 0, 56, 17));
+                addSlot(new SlotItemHandler(h, 1, 56, 53));
+                addSlot(new SlotItemHandler(h, 2, 116, 35));
             });
         }
     }
+
+    public boolean isLightningStorm()
+    {
+        return tileEntity.getWorld().isThundering();
+    }
+
+    public boolean hasSmeltingFuel()
+    {
+        return netheriteFurnaceTile.hasFuel();
+    }
+
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn)

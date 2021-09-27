@@ -4,8 +4,11 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.rafael.rafaelcraft.RafaelCraft;
 import com.rafael.rafaelcraft.container.NetheriteFurnaceContainer;
+import com.rafael.rafaelcraft.tileentity.NetheriteFurnaceTile;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.loot.functions.Smelt;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -34,5 +37,16 @@ public class NetheriteFurnaceScreen extends ContainerScreen<NetheriteFurnaceCont
         int i = this.guiLeft;
         int j = this.guiTop;
         this.blit(matrixStack, i, j, 0, 0, this.xSize, this.ySize);
+
+        if(container.isLightningStorm())
+        {
+            this.blit(matrixStack, i + 86, j + 15, 176, 14, 13, 17);
+        }
+
+        //if(container.hasSmeltingFuel())
+        //{
+            //this.blit(matrixStack, i + 57, j + 37, 176, 0, 14, 14);
+        //}
+
     }
 }
