@@ -1,8 +1,11 @@
 package com.rafael.rafaelcraft.tileentity;
 
 import com.rafael.rafaelcraft.block.ModBlocks;
+import com.rafael.rafaelcraft.block.custom.NetheriteFurnaceBlock;
 import com.rafael.rafaelcraft.item.ModItems;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -10,6 +13,7 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -18,6 +22,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class NetheriteFurnaceTile extends TileEntity implements ITickableTileEntity
 {
@@ -130,9 +135,30 @@ public class NetheriteFurnaceTile extends TileEntity implements ITickableTileEnt
         return hasFuel;
     }
 
+    Random random = new Random();
+    int counter = 0;
+    int randomizer;
+
     @Override
     public void tick()
     {
 
+        counter++;
+        if(counter > 200)
+        {
+            randomizer = random.nextInt(4);
+            if(randomizer == 0)
+            {
+                if(!this.world.isRemote && this.world.isThundering()) {
+                    EntityType.LIGHTNING_BOLT.spawn(((ServerWorld) this.world), null, null, pos, SpawnReason.TRIGGERED, true, true);
+                }
+                if(!this.world.isRemote()) {
+                    Smelt();
+                }
+            }
+            counter = 0;
+        }
+
+        this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(NetheriteFurnaceBlock.LIT, Boolean.valueOf(this.hasFuel())), 3);
     }
 }

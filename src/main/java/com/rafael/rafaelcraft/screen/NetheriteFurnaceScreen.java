@@ -43,10 +43,10 @@ public class NetheriteFurnaceScreen extends ContainerScreen<NetheriteFurnaceCont
             this.blit(matrixStack, i + 86, j + 15, 176, 14, 13, 17);
         }
 
-        //if(container.hasSmeltingFuel())
-        //{
-            //this.blit(matrixStack, i + 57, j + 37, 176, 0, 14, 14);
-        //}
+        if(container.hasSmeltingFuel())
+        {
+            this.blit(matrixStack, i + 57, j + 37, 176, 0, 14, 14);
+        }
 
     }
 }

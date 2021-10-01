@@ -33,7 +33,7 @@ public class NetheriteFurnaceContainer extends Container
         playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
 
-        layoutPlayerInventorySlots(8, 86);
+        layoutPlayerInventorySlots(8, 84);
 
         if(tileEntity != null)
         {
@@ -53,7 +53,7 @@ public class NetheriteFurnaceContainer extends Container
 
     public boolean hasSmeltingFuel()
     {
-        return netheriteFurnaceTile.hasFuel();
+        return ((NetheriteFurnaceTile)tileEntity).hasFuel();
     }
 
 

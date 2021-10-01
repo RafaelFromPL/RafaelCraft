@@ -4,6 +4,7 @@ import com.rafael.rafaelcraft.block.ModBlocks;
 import com.rafael.rafaelcraft.container.ModContainers;
 import com.rafael.rafaelcraft.screen.NetheriteFurnaceScreen;
 import com.rafael.rafaelcraft.tileentity.ModTileEntities;
+import com.rafael.rafaelcraft.world.structure.ModStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.ScreenManager;
@@ -43,6 +44,7 @@ public class RafaelCraft
         ModBlocks.register(eventBus);
         ModTileEntities.register(eventBus);
         ModContainers.register(eventBus);
+        ModStructures.register(eventBus);
 
         eventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -61,6 +63,7 @@ public class RafaelCraft
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        ModStructures.setupStructures();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)
