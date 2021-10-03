@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+      "###",
+      "#n#",
+      "###"
+    ],
+    "key":
+    {
+      "#":
+      {
+        "item": "minecraft:obsidian"
+      },
+      "n":
+      {
+        "item": "minecraft:netherite_ingot"
+      }
+    },
+    "result":
+    {
+      "item": "rafaelcraft:netherite_furnace",
+      "count": 1
+    }
+}

@@ -2,16 +2,20 @@ package com.rafael.rafaelcraft;
 
 import com.rafael.rafaelcraft.block.ModBlocks;
 import com.rafael.rafaelcraft.container.ModContainers;
+import com.rafael.rafaelcraft.entity.EnderBeastEntity;
+import com.rafael.rafaelcraft.entity.ModEntityTypes;
 import com.rafael.rafaelcraft.screen.NetheriteFurnaceScreen;
 import com.rafael.rafaelcraft.tileentity.ModTileEntities;
 import com.rafael.rafaelcraft.world.structure.ModStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -40,6 +44,7 @@ public class RafaelCraft
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModEntityTypes.ENTITY_TYPES.register(eventBus);
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModTileEntities.register(eventBus);
@@ -64,6 +69,9 @@ public class RafaelCraft
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
         ModStructures.setupStructures();
+        event.enqueueWork(() -> {
+            GlobalEntityTypeAttributes.put(ModEntityTypes.ENDER_BEAST.get(), EnderBeastEntity.setAttributes().create());
+        });
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)
@@ -97,5 +105,14 @@ public class RafaelCraft
             // register a new block here
             LOGGER.info("HELLO from Register Block");
         }
+    }
+
+    @SuppressWarnings("deprecation")
+    public void commonSetup(final FMLCommonSetupEvent event)
+    {
+        DeferredWorkQueue.runLater(() ->
+        {
+            GlobalEntityTypeAttributes.put(ModEntityTypes.ENDER_BEAST.get(), EnderBeastEntity.setAttributes().create());
+        });
     }
 }

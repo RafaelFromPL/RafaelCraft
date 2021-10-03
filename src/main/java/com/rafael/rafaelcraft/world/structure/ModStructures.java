@@ -3,6 +3,7 @@ package com.rafael.rafaelcraft.world.structure;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.rafael.rafaelcraft.RafaelCraft;
+import com.rafael.rafaelcraft.world.structure.structures.EnderiteVeinStructure;
 import com.rafael.rafaelcraft.world.structure.structures.TowerStructure;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -24,10 +25,15 @@ public class ModStructures
 
     public static final RegistryObject<Structure<NoFeatureConfig>> TOWER =
             STRUCTURES.register("tower", TowerStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> ENDERITE_VEIN =
+            STRUCTURES.register("enderite_vein", EnderiteVeinStructure::new);
 
     public static void setupStructures() {
         setupMapSpacingAndLand(TOWER.get(),
-                new StructureSeparationSettings(100,50, 1234567890),
+                new StructureSeparationSettings(50,40, 1234567890),
+                true);
+        setupMapSpacingAndLand(ENDERITE_VEIN.get(),
+                new StructureSeparationSettings(10,8, 1234567890),
                 true);
     }
 
