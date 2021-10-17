@@ -14,6 +14,6 @@ public class ModEntityTypes
             DeferredRegister.create(ForgeRegistries.ENTITIES, RafaelCraft.MOD_ID);
 
     public static RegistryObject<EntityType<EnderBeastEntity>> ENDER_BEAST = ENTITY_TYPES.register("ender_beast",
-            () -> EntityType.Builder.create(EnderBeastEntity::new, EntityClassification.MONSTER).size(1f, 1f)
+            () -> EntityType.Builder.create(EnderBeastEntity::new, EntityClassification.MONSTER).size(3, 3)
                     .build(new ResourceLocation(RafaelCraft.MOD_ID, "ender_beast").toString()));
 }

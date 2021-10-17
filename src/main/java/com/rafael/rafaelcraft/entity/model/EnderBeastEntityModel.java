@@ -11,6 +11,7 @@ import com.rafael.rafaelcraft.entity.EnderBeastEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 public class EnderBeastEntityModel<T extends EnderBeastEntity> extends EntityModel<T>
 {
@@ -129,8 +130,15 @@ public class EnderBeastEntityModel<T extends EnderBeastEntity> extends EntityMod
     }
 
     @Override
-    public void setRotationAngles(EnderBeastEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch)
-    {
+    public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        this.head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
+        this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
+        this.right_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.2f * limbSwingAmount;
+        this.left_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.2F * limbSwingAmount;
+        this.right_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.2f * limbSwingAmount;
+        this.left_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.2F * limbSwingAmount;
+        this.right_second_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.2f * limbSwingAmount;
+        this.left_second_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.2f * limbSwingAmount;
 
     }
 }

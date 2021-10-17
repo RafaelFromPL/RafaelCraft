@@ -1,6 +1,7 @@
 {
     "item.rafaelcraft.enderite_scrap": "Odłamek enderytu",
     "item.rafaelcraft.enderite_ingot": "Sztabka enderytu",
+    "item.rafaelcraft.ender_beast_spawn_egg": "Jajo przzywające bestię endu",
 
     "item.rafaelcraft.enderite_sword": "Enderytowy miecz",
     "item.rafaelcraft.enderite_shovel": "Enderytowa łopata",
@@ -19,5 +20,6 @@
 
     "screen.rafaelcraft.netherite_furnace": "Netherytowy piec",
 
-    "itemGroup.rafaelCraftTab": "RafaelCraft"
+    "itemGroup.rafaelCraftTab": "RafaelCraft",
+    "entity.rafaelcraft.ender_beast": "Bestia endu"
 }

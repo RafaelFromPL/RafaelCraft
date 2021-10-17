@@ -4,12 +4,14 @@ import com.rafael.rafaelcraft.block.ModBlocks;
 import com.rafael.rafaelcraft.container.ModContainers;
 import com.rafael.rafaelcraft.entity.EnderBeastEntity;
 import com.rafael.rafaelcraft.entity.ModEntityTypes;
+import com.rafael.rafaelcraft.item.ModSpawnEggItem;
 import com.rafael.rafaelcraft.screen.NetheriteFurnaceScreen;
 import com.rafael.rafaelcraft.tileentity.ModTileEntities;
 import com.rafael.rafaelcraft.world.structure.ModStructures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -105,6 +107,12 @@ public class RafaelCraft
             // register a new block here
             LOGGER.info("HELLO from Register Block");
         }
+    }
+
+    @SubscribeEvent
+    public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event)
+    {
+        ModSpawnEggItem.initSpawnEggs();
     }
 
     @SuppressWarnings("deprecation")

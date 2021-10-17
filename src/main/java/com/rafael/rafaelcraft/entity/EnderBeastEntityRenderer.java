@@ -20,6 +20,6 @@ public class EnderBeastEntityRenderer extends MobRenderer<EnderBeastEntity, Ende
     @Override
     public ResourceLocation getEntityTexture(EnderBeastEntity entity)
     {
-        return null;
+        return TEXTURE;
     }
 }

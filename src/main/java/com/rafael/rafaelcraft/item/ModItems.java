@@ -1,6 +1,7 @@
 package com.rafael.rafaelcraft.item;
 
 import com.rafael.rafaelcraft.RafaelCraft;
+import com.rafael.rafaelcraft.entity.ModEntityTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -56,7 +57,7 @@ public class ModItems
 
 
     public static final RegistryObject<Item> ENDERITE_HELMET = ITEMS.register("enderite_helmet",
-            () -> new ModArmorItem(ModArmorMaterial.ENDERITE_INGOT, EquipmentSlotType.HEAD,
+            () -> new ArmorItem(ModArmorMaterial.ENDERITE_INGOT, EquipmentSlotType.HEAD,
                     new Item.Properties().group(ModItemGroup.RAFAELCRAFT_GROUP).isImmuneToFire()));
 
     public static final RegistryObject<Item> ENDERITE_CHESTPLATE = ITEMS.register("enderite_chestplate",
@@ -70,6 +71,10 @@ public class ModItems
     public static final RegistryObject<Item> ENDERITE_BOOTS = ITEMS.register("enderite_boots",
             () -> new ArmorItem(ModArmorMaterial.ENDERITE_INGOT, EquipmentSlotType.FEET,
                     new Item.Properties().group(ModItemGroup.RAFAELCRAFT_GROUP).isImmuneToFire()));
+
+
+    public static final RegistryObject<ModSpawnEggItem> ENDER_BEAST_SPAWN_EGG = ITEMS.register("ender_beast_spawn_egg",
+            ()-> new ModSpawnEggItem(ModEntityTypes.ENDER_BEAST, 0x0d0d0d, 0x3c0054, new Item.Properties().group(ModItemGroup.RAFAELCRAFT_GROUP)));
 
 
 

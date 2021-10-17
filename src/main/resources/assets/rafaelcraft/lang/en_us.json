@@ -1,6 +1,7 @@
 {
     "item.rafaelcraft.enderite_scrap": "Enderite Scrap",
     "item.rafaelcraft.enderite_ingot": "Enderite Ingot",
+    "item.rafaelcraft.ender_beast_spawn_egg": "Ender Beast Spawn Egg",
 
     "item.rafaelcraft.enderite_sword": "Enderite Sword",
     "item.rafaelcraft.enderite_shovel": "Enderite Shovel",
@@ -19,5 +20,7 @@
 
     "screen.rafaelcraft.netherite_furnace": "Netherite Furnace",
 
-    "itemGroup.rafaelCraftTab": "RafaelCraft"
+    "itemGroup.rafaelCraftTab": "RafaelCraft",
+
+    "entity.rafaelcraft.ender_beast": "Ender Beast"
 }

@@ -21,6 +21,7 @@ public class ModStructureGeneration
         RegistryKey<Biome> key = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, event.getName());
         Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
 
+
         if(((Set<?>) types).contains(BiomeDictionary.Type.PLAINS)) {
             List<Supplier<StructureFeature<?, ?>>> structures = event.getGeneration().getStructures();
 
@@ -37,11 +38,19 @@ public class ModStructureGeneration
             structures.add(() -> ModStructures.TOWER.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         }
 
+
         if (event.getName().equals(Biomes.END_HIGHLANDS.getLocation()))
         {
             List<Supplier<StructureFeature<?, ?>>> structures = event.getGeneration().getStructures();
 
             structures.add(() -> ModStructures.ENDERITE_VEIN.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+        }
+
+
+        if(((Set<?>) types).contains(BiomeDictionary.Type.PLAINS)) {
+            List<Supplier<StructureFeature<?, ?>>> structures = event.getGeneration().getStructures();
+
+            structures.add(() -> ModStructures.CASTLE.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         }
 
     }

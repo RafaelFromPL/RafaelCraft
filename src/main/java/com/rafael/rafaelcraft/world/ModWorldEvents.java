@@ -72,6 +72,12 @@ public class ModWorldEvents
                     DimensionStructuresSettings.field_236191_b_.get(ModStructures.ENDERITE_VEIN.get()));
             serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap2;
 
+            Map<Structure<?>, StructureSeparationSettings> tempMap3 =
+                    new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
+            tempMap.putIfAbsent(ModStructures.CASTLE.get(),
+                    DimensionStructuresSettings.field_236191_b_.get(ModStructures.CASTLE.get()));
+            serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap3;
+
         }
     }
 }
